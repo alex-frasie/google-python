@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Homepage</title>
+
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <style type="text/css">
+        html, body{
+            height: 100%;
+        }
+        header{
+            position: fixed;
+            width: 100%;
+            background-color: darkslategray;
+        }
+        .jumbotron{
+            min-height: 100%;
+        }
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: darkslategray;
+            color: white;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<header>
+    <div class="container" >
+        <h3 style="color: aliceblue"><i><b>Carparts Warehouse</b></i></h3>
+    </div>
+</header>
+
+<body>
+
+    <div class="jumbotron" align="center">
+        <br>
+        <h1 align=center>
+            Welcome, <i>{{ request.user }}</i>!
+        </h1>
+
+        <h2>
+            This is our <b><i>Car parts Warehouse</i></b>!
+        </h2>
+
+        <br>
+
+        <h3 align="center">
+            <i>Please select an action:</i>
+        </h3>
+
+        <br><br>
+
+        <a class="btn btn-primary" href="./products" role="button">See all products</a>
+        <br><br>
+        <a class="btn btn-success" href="./create" role="button">Create a new car part</a>
+
+    </div>
+
+</body>
+
+<footer>
+    <div class="container" >
+        <h3 align="right" style="color: aliceblue"><i><b>Contact us for more offers</b></i></h3>
+    </div>
+</footer>
+
+</html>
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>All products</title>
+
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <style type="text/css">
+        html, body{
+            height: 100%;
+        }
+        header{
+            position: fixed;
+            width: 100%;
+            background-color: darkslategray;
+        }
+        .jumbotron{
+            min-height: 100%;
+        }
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: darkslategray;
+            color: white;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<header>
+    <div class="container" >
+        <h3 style="color: aliceblue"><i><b>Carparts Warehouse</b></i></h3>
+    </div>
+</header>
+
+<body>
+
+    <div class="jumbotron" align="center">
+
+        <h1>
+            {{ object.title }}
+        </h1>
+
+        <h2>
+            <b><i>Category:</i></b> {{ object.category }}
+        </h2>
+
+        <h3>
+            <b><i>Price:</i></b> {{ object.price }}
+        </h3>
+
+        <h3>
+            <b><i>Short description:</i></b><br>
+            {{ object.description }}
+        </h3>
+
+        <p>
+            {% if object.review != None and object.review != '' %}
+            <b><i>Review: </i></b><br>
+                {{ object.review }}
+            {% else %} <b><i>No review yet...</i></b>
+                <br>
+                   <form method="POST"> {% csrf_token %}
+                    {{ form }}<br>
+                    <input class="btn btn-warning" type="submit" value="Write review" role="button">
+                    </form>
+                <br>
+            {% endif %}
+        </p>
+
+        <a class="btn btn-danger" href="/product/delete/{{ object.id }}/" role="button">Delete the car part</a>
+        <br>
+    <br>
+
+    <a class="btn btn-info" role="button" href="/products">Back</a>
+
+    </div>
+
+</body>
+
+<footer>
+    <div class="container" >
+        <h3 align="right" style="color: aliceblue"><i><b>Contact us for more offers</b></i></h3>
+    </div>
+</footer>
+
+</html>
